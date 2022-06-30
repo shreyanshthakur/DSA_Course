@@ -27,11 +27,22 @@ using namespace std;
         }
         return ans;
     }
-
+double morePrecision (int n, int precision, int tempsol) {
+    double factor = 1;
+    double ans = tempsol;
+    for (int i = 0; i < precision; i++) {
+        factor = factor/10;
+        for (double j = ans; j*j < n; j += factor) {
+            ans = j;
+        }
+    }
+    return ans;
+}
 int main () {
     int n;
     cout << "Enter the number : ";
     cin >> n;
-    cout << "Square root is : " << sqrtInteger(n);
+    int tempsol = sqrtInteger(n);
+    cout << "Square root is : " << morePrecision(n, 3, tempsol);
     return 0;
 }
