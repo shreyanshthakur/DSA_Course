@@ -3,8 +3,9 @@ using namespace std;
 int main () {
     int n;
     cin >> n;
+    //single line array jisme pointers rakhe
     int** arr = new int*[n];
-
+    //array ke har box me ek array rakha
     for (int i = 0; i < n; i++) {
         arr[i] = new int[n];
     }
@@ -20,6 +21,12 @@ int main () {
         }
         cout << endl;
     }
+
+    //releasing memory
+    for (int i = 0; i < n; i++) {
+        delete []arr[i];
+    }
+    delete []arr;
 
     return 0;
 }
