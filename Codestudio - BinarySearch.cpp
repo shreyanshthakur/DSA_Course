@@ -15,6 +15,6 @@ int binarySearch(int *input, int n, int val)
 {
     //Write your code here
     int s = 0;
-    int e = n -1;
+    int e = n - 1;
     return binarySearch(input, s, e, val);
 }
