@@ -1,9 +1,7 @@
 #include <iostream>
+#include "Hero.cpp"
 using namespace std;
 
-class Hero {
-    int health;
-};
 int main () {
     //object creation
     Hero shaktimaan;
