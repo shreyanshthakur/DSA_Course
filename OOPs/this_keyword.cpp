@@ -6,7 +6,7 @@ class Hero {
     public:
         Hero (int health) {
             this -> health = health;
-        }
+        } 
         int getHealth() {
             return health;
         }
