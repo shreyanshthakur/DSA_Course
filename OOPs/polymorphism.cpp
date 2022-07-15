@@ -1,6 +1,7 @@
 #include <iostream>
 using namespace std;
 //compile time polymorphism
+//function overloading
 class A {
     public:
     void sayHello() {
