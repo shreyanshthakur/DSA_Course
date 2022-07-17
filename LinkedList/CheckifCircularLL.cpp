@@ -32,6 +32,9 @@ void insertNode (Node* &tail, int element, int d) {
 }
 
 void print (Node* &tail) {
+    if (tail == NULL) {
+        cout << "List is Empty" << endl;
+    }
     Node* temp = tail;
     do  {
         cout << temp -> data << " ";
