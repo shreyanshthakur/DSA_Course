@@ -66,7 +66,7 @@ class heap {
 };
 
 void heapify (int arr[], int n, int i) {
-
+//for 1 based indexing
     int largest = i;
     int left = 2*i;
     int right = 2*i + 1;
