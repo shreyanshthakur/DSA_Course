@@ -82,18 +82,48 @@ public:
         return dp[0];
         
     }
+    
+int solveSuperSO (vector<int>& days, vector<int>& costs) {
+    
+    int ans = 0;
+    
+    queue<pair<int, int> > month;
+    queue<pair<int, int> > week;
+    
+    for (int day : days) {
+        
+        //step 1: remove expired days
+        while (!month.empty() && month.front().first + 30 <= day) 
+            month.pop();
+        while (!week.empty() && week.front().first + 7 <= day) 
+            week.pop();
+        
+        //stepp 2: add cost for current day
+        week.push(make_pair(day, ans+costs[1]));
+        month.push(make_pair(day, ans+costs[2]));
+        
+        //step 3: ans update
+        ans = min (ans+costs[0], min(week.front().second, month.front().second));
+    }
+    return ans;
+    
+}
+    
 
     
     int mincostTickets(vector<int>& days, vector<int>& costs) {
         // int n = days.size();
         // return solve (days, costs, 0, n);
         
+        //repair
         // int n = days.size();
         // vector<int> dp(n+1, -1);
         // return solveMem (days, costs, 0, n, dp);
         
-        int n = days.size();
-        return solveTab (days, costs, n);
+        // int n = days.size();
+        // return solveTab (days, costs, n);
         
+        return solveSuperSO (days, costs);
         
+    }
 };
