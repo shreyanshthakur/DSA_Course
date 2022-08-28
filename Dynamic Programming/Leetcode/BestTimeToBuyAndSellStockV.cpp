@@ -1,7 +1,7 @@
 class Solution {
 public:
     
-    int solve (int index, int buy, vector<int>& prices, vector<vector<int> >& dp) {
+    int solve (int index, int buy, vector<int>& prices, vector<vector<int> >& dp, int fee) {
         if (index == prices.size()) 
             return 0;
         
@@ -10,10 +10,10 @@ public:
         
         int profit = 0;
         if (buy) {
-            profit = max ( -prices[index] + solve(index+1, 0, prices, dp), 0 + solve(index+1, 1, prices, dp) );    
+            profit = max ( -prices[index] + solve(index+1, 0, prices, dp, fee), 0 + solve(index+1, 1, prices, dp, fee) );    
         }
         else {
-            profit = max ( +prices[index] + solve(index+1, 1, prices, dp), 0 + solve(index+1, 0, prices, dp) );
+            profit = max ( +prices[index] + solve(index+1, 1, prices, dp, fee) - fee, 0 + solve(index+1, 0, prices, dp, fee) );
         }
         return dp[index][buy] = profit;
     }
@@ -32,7 +32,7 @@ public:
                     profit = max ( -prices[index] + next[0], 0 + next[1] );    
                 }
                 else {
-                    profit = max ( +prices[index] + next[1], next[0] );
+                    profit = max ( +prices[index] + next[1] - fee, next[0] );
                 }
                 cur[buy] = profit;
                
@@ -41,9 +41,11 @@ public:
         }
         return next[1];
     }
-    int maxProfit(vector<int>& prices) {
-        int n = prices.size();
-        vector<vector<int> > dp(n, vector<int>(2, -1));
-        return solve (0, 1, prices, dp);
+    int maxProfit(vector<int>& prices, int fee) {
+        // int n = prices.size();
+        // vector<vector<int> > dp(n, vector<int>(2, -1));
+        // return solve (0, 1, prices, dp, fee);
+        
+        return solveTabSO (prices, fee);
     }
 };
