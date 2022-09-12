@@ -1,7 +1,7 @@
 class Solution {
 public:
     
-    void solve (vector<int>& candidates, int target, int sum, vector<int>& temp, vector<vector<int>>& ans, int index) {
+    void solve (const vector<int>& candidates, int target, int sum, vector<int>& temp, vector<vector<int>>& ans, int index) {
         if (sum > target)
             return;
         if (sum == target) {
