@@ -1,0 +1,8 @@
+Unify index
+
+Struggle between rows and cols?
+You may duplicate your codes when you try to the same thing on rows and cols.
+In fact, no logical difference between col index and rows index.
+
+An easy trick is that, add 10000 to col index.
+So we use 0 ~ 9999 for row index and 10000 ~ 19999 for col.
