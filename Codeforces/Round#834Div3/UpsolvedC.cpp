@@ -13,22 +13,32 @@ void solve() {
         cout << 0 << endl;
         return;
     }
-    if ((r-l) < x) {
-        cout << -1 << endl;
-        return;
-    }
-    if (abs(a-b) >= x) {
-        cout << 1 << endl;
-        return;
-    }
-    else {
-        if ((r-b) >= x && (b-l) >= x) {
+    else if (a < b) {
+        if (b-a >= x) {
+            cout << 1 << endl;
+        }
+        else if (r-b >= x || a-l >= x) {
             cout << 2 << endl;
-            return;
+        }
+        else if (r-a >= x && b-l >= x) {
+            cout << 3 << endl;
         }
         else {
+            cout << -1 << endl;
+        }
+    }
+    else {
+        if (a-b >= x) {
+            cout << 1 << endl;
+        }
+        else if (r-a >= x || b-l >= x) {
+            cout << 2 << endl;
+        }
+        else if (r-b >= x && a-l >= x) {
             cout << 3 << endl;
-            return;
+        }
+        else {
+            cout << -1 << endl;
         }
     }
 }
