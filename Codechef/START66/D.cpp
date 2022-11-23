@@ -7,19 +7,9 @@ using namespace std;
 void solve() {
     string s;
     cin >> s;
-    //check palindrome
-    int i = 0, j = s.length()-1;
-    bool flag = 0;
-    while (i < j) {
-        if (s[i++] != s[j--]) {
-            flag = 1;
-            break;
-        }
-
-    }
-    if (flag == 1) cout << 2 << endl;
-    else cout << s.length()-2 << endl;
     
+    if (s[0] == s[s.length()-1]) cout << s.length()-2 << endl;
+    else cout << 2 << endl;   
 }
 
 int main () {
