@@ -5,8 +5,11 @@ using namespace std;
 #define MOD 1000000007
 
 void solve() {
-    int n; cin >> n;
-    
+    int a, b, c;
+    cin >> a >> b >> c;
+    if (a>b+c || b>a+c || c>a+b)
+        cout << "Yes" << endl; 
+    else cout << "No" << endl;
 }
 
 int main () {

@@ -5,7 +5,11 @@ using namespace std;
 #define MOD 1000000007
 
 void solve() {
-    int n; cin >> n;
+    int n, m, k, x; 
+    cin >> n >> m >> k >> x;
+    int rem = x % ((n*k) + m);
+    if (rem > (k-1) * n || rem == 0) cout <<"Yes" << endl;
+    else cout << "No" << endl;
     
 }
 

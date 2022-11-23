@@ -5,8 +5,17 @@ using namespace std;
 #define MOD 1000000007
 
 void solve() {
-    int n; cin >> n;
-    
+    int n, a, b;
+    cin >> n >> a >> b;
+    int ans = 0, count = 0;
+    while (n != 1) {
+        ans += a;
+        n /= 2;
+        //cout << "n= " << n;
+        count++;
+    }
+    //cout << ans << " " << count << endl;
+    cout << ans + ((count-1)*b) << endl;
 }
 
 int main () {

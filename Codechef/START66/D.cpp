@@ -5,7 +5,20 @@ using namespace std;
 #define MOD 1000000007
 
 void solve() {
-    int n; cin >> n;
+    string s;
+    cin >> s;
+    //check palindrome
+    int i = 0, j = s.length()-1;
+    bool flag = 0;
+    while (i < j) {
+        if (s[i++] != s[j--]) {
+            flag = 1;
+            break;
+        }
+
+    }
+    if (flag == 1) cout << 2 << endl;
+    else cout << s.length()-2 << endl;
     
 }
 
